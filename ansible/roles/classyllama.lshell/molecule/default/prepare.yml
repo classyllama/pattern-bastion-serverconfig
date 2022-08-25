@@ -1,0 +1,9 @@
+- name: Prepare
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: "Prep host for lshell installation"
+      ansible.builtin.package:
+        name: git
+        state: present

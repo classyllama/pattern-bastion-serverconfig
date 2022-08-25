@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ansible-role-lshell"
+      include_role:
+        name: "ansible-role-lshell"
+  vars:
+    use_classyllama_lshell: true

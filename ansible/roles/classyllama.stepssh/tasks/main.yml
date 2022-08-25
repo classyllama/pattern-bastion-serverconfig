@@ -1,0 +1,38 @@
+---
+- name: StepSSH | Check is installed
+  ansible.builtin.stat:
+    path: /usr/bin/step
+  register: is_stepssh_installed
+
+- name: StepSSH | Download install script
+  ansible.builtin.get_url:
+    url: https://files.smallstep.com/ssh-host.sh
+    dest: /tmp/ssh-host.sh
+    mode: '0750'
+  when: not is_stepssh_installed.stat.exists
+
+- name: StepSSH | Build array of tags
+  set_fact:
+    classyllama_stepssh_tag_string: "--tag {{ classyllama_stepssh_tags | list | join(' --tag ') }}"
+
+- name: StepSSH | Debug
+  ansible.builtin.debug:
+    var: classyllama_stepssh_tag_string
+
+- name: StepSSH | Installation
+  ansible.builtin.command: >
+         bash /tmp/ssh-host.sh 
+         --team {{ classyllama_stepssh_teamid }}
+         --token {{ classyllama_stepssh_token }}
+         --hostname {{ ansible_hostname }}
+         {{ classyllama_stepssh_bastion_config }}
+         {{ classyllama_stepssh_tag_string }}
+         --force
+
+  ignore_errors: '{{ ansible_check_mode }}'
+  register: command_output
+  when: not is_stepssh_installed.stat.exists
+
+- name: StepSSH | Debug
+  ansible.builtin.debug:
+    var: command_output.stdout_lines

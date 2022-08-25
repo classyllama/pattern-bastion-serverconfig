@@ -1,0 +1,66 @@
+---
+# Install Collections and Roles with Ansible Galaxy
+# ansible-galaxy install -r requirements.yml
+
+# List installed collections or roles and the respective versions
+# ansible-galaxy collection list
+# ansible-galaxy role list
+
+# Verify installed collections
+# ansible-galaxy collection verify -r requirements.yml 
+
+collections:
+  # - name: community.general
+  #   type: galaxy
+  #   version: '>=3.3.2' # Certbot role fix (snapd), see https://github.com/ansible-collections/community.general/issues/2953 for details
+  #   # requirements met by Ansible 2.11.3
+  
+roles:
+
+  - src: git@github.com:classyllama/ansible-role-boilerplate.git
+    name: classyllama.boilerplate
+    scm: git
+  
+  - src: git@github.com:classyllama/ansible-role-hostsfile.git
+    name: classyllama.hostsfile
+    scm: git
+  
+  - src: git@github.com:classyllama/ansible-role-python.git
+    name: classyllama.python
+    scm: git
+  
+  - src: git@github.com:classyllama/ansible-role-repo-python-appstream.git
+    name: classyllama.repo-python-appstream
+    scm: git
+
+  - src: git@github.com:classyllama/ansible-role-sshd-lockdown.git
+    name: classyllama.sshd-lockdown
+    scm: git
+  
+  - src: git@github.com:classyllama/ansible-role-syseng-access.git
+    name: classyllama.syseng-access
+    scm: git
+  
+  - src: git@github.com:classyllama/ansible-role-timezone.git
+    name: classyllama.timezone
+    scm: git
+
+  - src: git@github.com:classyllama/ansible-role-lshell.git
+    name: classyllama.lshell
+    scm: git
+
+  - src: git@github.com:classyllama/ansible-role-stepssh.git
+    name: classyllama.stepssh
+    scm: git
+  
+    # 3rd Party Ansible Roles
+
+    # For Magento-Cloud CLI
+  - src: geerlingguy.php
+    version: 4.8.0
+
+  - src: geerlingguy.repo-epel
+  
+  - src: kamaln7.swapfile
+
+  - src: linuxhq.postfix

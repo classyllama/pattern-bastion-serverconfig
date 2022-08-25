@@ -1,0 +1,7 @@
+/var/log/lshell/*.log {
+    rotate 364
+    daily
+    compress
+    missingok
+    notifempty
+}

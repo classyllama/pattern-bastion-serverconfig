@@ -1,0 +1,49 @@
+---
+- name: LSHELL | Check is installed
+  ansible.builtin.stat:
+    path: /bin/lshell
+  register: is_lshell_installed
+
+- name: LSHELL | Clone the repository
+  ansible.builtin.git:
+    repo: "{{ classyllama_lshell_repo_url }}"
+    dest: "/root/lshell-{{ classyllama_lshell_version }}"
+    version: "{{ classyllama_lshell_version }} "
+  when: not is_lshell_installed.stat.exists
+
+- name: LSHELL | Check if python2 installed on CentOS 8 / RockyLinux8
+  ansible.builtin.package:
+    name: python2
+    state: present
+  when:
+    - ansible_os_family == 'RedHat'
+    - ansible_distribution_major_version|int >= 8
+
+- name: LSHELL | Installation
+  ansible.builtin.command:
+    cmd: "python2 setup.py install --no-compile --install-scripts=/usr/bin/"
+  args:
+    chdir: "/root/lshell-{{ classyllama_lshell_version }}"
+  ignore_errors: '{{ ansible_check_mode }}'
+  when: not is_lshell_installed.stat.exists
+
+- name: LSHELL | Add to /etc/shells
+  ansible.builtin.lineinfile:
+    path: /etc/shells
+    line: /bin/lshell
+
+- name: LSHELL | Prepare configuration
+  ansible.builtin.template:
+    src: lshell.conf.j2
+    dest: /etc/lshell.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: LSHELL | Configure logrotate
+  ansible.builtin.copy:
+    src: lshell
+    dest: /etc/logrotate.d/lshell
+    owner: root
+    group: root
+    mode: 0640

@@ -1,0 +1,24 @@
+---
+- name: Bastion Role
+  hosts: bastion
+  become: true
+
+  tasks:
+
+    # --- Bastion Config Roles
+    - ansible.builtin.import_role:
+         name: classyllama.lshell
+      tags: lshell
+      when: use_classyllama_lshell | default(false)
+
+    - ansible.builtin.import_role:
+         name: classyllama.stepssh
+      tags: stepssh
+      when: use_classyllama_stepssh | default(false)
+
+    # Magento-Cloud CLI
+    - ansible.builtin.import_role:
+         name: geerlingguy.php
+      tags: php
+      when: use_geerlingguy_php | default(false)
+

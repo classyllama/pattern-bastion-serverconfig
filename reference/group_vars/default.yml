@@ -1,0 +1,67 @@
+---
+# Define the supported ansible version requirements of these playbooks
+ansible_version_require_min: "2.11.3"         # Example "2.10" or "2"
+ansible_version_require_min_operator: ">="  # Example ">=" or ">"
+ansible_version_require_max: "3"            # Example "2.11" or "3"
+ansible_version_require_max_operator: "<"   # Example "<=" or "<"
+
+# --- System Configs
+client_code: EXP
+account_name: example
+app_domain: example.lan
+
+yum_update_and_reboot: never # (always, initial, never)
+
+use_classyllama_syseng_access: true
+use_classyllama_boilerplate: true
+
+use_classyllama_hostsfile: false
+hostsfile_records:
+  - "127.0.0.1 {{ app_domain }}"
+
+use_geerlingguy_repo_epel: false
+use_classyllama_repo_php_remi_modular: false
+
+use_classyllama_timezone: false
+timezone_name: America/Chicago
+
+syseng_access_users: []
+
+use_kamaln7_swapfile: false
+swapfile_location: /var/swap.1
+swapfile_size: 2048
+swapfile_swappiness: 10
+swapfile_use_dd: true
+
+use_classyllama_python: true
+use_classyllama_repo_python_appstream: false
+python_package_name: python # CentOS 7 uses Python 2.7
+python_software_packages: 
+  - "{{ python_package_name }}"
+  - "{{ python_package_name }}-pip"
+  - "{{ python_package_name }}-devel"
+
+use_linuxhq_postfix: true
+postfix_parameters:
+    smtp_tls_security_level: encrypt
+    smtp_use_tls: True
+    smtp_tls_note_starttls_offer: True
+    smtp_tls_CAfile: /etc/ssl/certs/ca-bundle.crt
+    inet_protocols: ipv4
+    mydomain: "{{ ansible_domain }}"
+    myhostname: "{{ ansible_nodename }}"
+    mynetworks_style: host
+    mynetworks:
+      - 127.0.0.0/8
+postfix_packages:
+- cyrus-sasl
+- cyrus-sasl-lib
+- cyrus-sasl-plain
+
+# PHP
+php_enable_webserver: false
+php_enable_repo: "remi-php74"
+
+use_classyllama_lshell: true
+use_classyllama_stepssh: true
+classyllama_stepssh_token: "token"

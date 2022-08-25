@@ -33,6 +33,10 @@ roles:
     name: classyllama.repo-python-appstream
     scm: git
 
+  - src: git@github.com:classyllama/ansible-role-repo-ius.git
+    name: classyllama.repo_ius
+    scm: git
+
   - src: git@github.com:classyllama/ansible-role-sshd-lockdown.git
     name: classyllama.sshd-lockdown
     scm: git
@@ -60,7 +64,7 @@ roles:
     version: 4.8.0
 
   - src: geerlingguy.repo-epel
-  
+
   - src: kamaln7.swapfile
 
   - src: linuxhq.postfix

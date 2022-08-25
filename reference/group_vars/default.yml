@@ -19,8 +19,9 @@ use_classyllama_hostsfile: false
 hostsfile_records:
   - "127.0.0.1 {{ app_domain }}"
 
-use_geerlingguy_repo_epel: false
+use_geerlingguy_repo_epel: true
 use_classyllama_repo_php_remi_modular: false
+use_classyllama_repo_ius: true
 
 use_classyllama_timezone: false
 timezone_name: America/Chicago

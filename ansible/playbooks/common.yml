@@ -12,11 +12,6 @@
       when: use_classyllama_syseng_access | default(false)
     
     - ansible.builtin.import_role:
-         name: classyllama.sshd-lockdown
-      tags: ssh
-      when: use_classyllama_sshd_lockdown | default(false)
-    
-    - ansible.builtin.import_role:
          name: classyllama.boilerplate
       tags: boilerplate
       when: use_classyllama_boilerplate | default(false)
@@ -25,11 +20,6 @@
          name: classyllama.python
       tags: python
       when: use_classyllama_python | default(false)
-    
-    - ansible.builtin.import_role:
-         name: classyllama.hostsfile
-      tags: hostsfile
-      when: use_classyllama_hostsfile | default(false)
     
     - ansible.builtin.import_role:
          name: kamaln7.swapfile

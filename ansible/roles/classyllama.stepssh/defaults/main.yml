@@ -4,6 +4,7 @@ classyllama_stepssh_token: "token"
 classyllama_stepssh_is_bastion: true
 classyllama_stepssh_bastion_host: "bastion.example.org"
 classyllama_stepssh_bastion_config: "{{ '--is-bastion' if classyllama_stepssh_is_bastion else '--bastion={{ classyllama_stepssh_bastion_host }}' }}"
+classyllama_stepssh_fqdn: "{{ app_domain }}"
 classyllama_stepssh_tags:
   - host=bastion
   - abc=xyz

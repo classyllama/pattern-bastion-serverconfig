@@ -1,0 +1,11 @@
+all:
+  children:
+    default:
+      children:
+        cluster:
+          hosts:
+            bastion-test:
+              ansible_host: AAA.XXX.YYY.ZZZ
+        bastion:
+          hosts:
+            bastion-test:

@@ -24,7 +24,7 @@
          bash /tmp/ssh-host.sh 
          --team {{ classyllama_stepssh_teamid }}
          --token {{ classyllama_stepssh_token }}
-         --hostname {{ ansible_hostname }}
+         --hostname {{ classyllama_stepssh_fqdn }}
          {{ classyllama_stepssh_bastion_config }}
          {{ classyllama_stepssh_tag_string }}
          --force

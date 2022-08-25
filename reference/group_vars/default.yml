@@ -5,20 +5,13 @@ ansible_version_require_min_operator: ">="  # Example ">=" or ">"
 ansible_version_require_max: "3"            # Example "2.11" or "3"
 ansible_version_require_max_operator: "<"   # Example "<=" or "<"
 
-# --- System Configs
-client_code: EXP
-account_name: example
+# ---- System Configs ----
 app_domain: example.lan
 
 yum_update_and_reboot: never # (always, initial, never)
 
 use_classyllama_syseng_access: true
 use_classyllama_boilerplate: true
-
-use_classyllama_hostsfile: false
-hostsfile_records:
-  - "127.0.0.1 {{ app_domain }}"
-
 use_geerlingguy_repo_epel: true
 use_classyllama_repo_php_remi_modular: false
 use_classyllama_repo_ius: true
@@ -59,11 +52,12 @@ postfix_packages:
 - cyrus-sasl-lib
 - cyrus-sasl-plain
 
-# PHP
+# --- PHP ----
 use_geerlingguy_php: true
 php_enable_webserver: false
 php_enable_repo: "remi-php74"
 
+# ---- Bastion tools ----
 use_classyllama_lshell: true
 use_classyllama_stepssh: true
 classyllama_stepssh_token: "token"

@@ -21,10 +21,6 @@ roles:
     name: classyllama.boilerplate
     scm: git
   
-  - src: git@github.com:classyllama/ansible-role-hostsfile.git
-    name: classyllama.hostsfile
-    scm: git
-  
   - src: git@github.com:classyllama/ansible-role-python.git
     name: classyllama.python
     scm: git
@@ -37,10 +33,6 @@ roles:
     name: classyllama.repo_ius
     scm: git
 
-  - src: git@github.com:classyllama/ansible-role-sshd-lockdown.git
-    name: classyllama.sshd-lockdown
-    scm: git
-  
   - src: git@github.com:classyllama/ansible-role-syseng-access.git
     name: classyllama.syseng-access
     scm: git

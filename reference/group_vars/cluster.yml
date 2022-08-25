@@ -1,0 +1,10 @@
+---
+
+# Minimal required configuration
+client_code: TEST
+account_name: bastion-test
+app_domain: bastion-test.example.org
+
+classyllama_stepssh_token: "token"
+
+syseng_access_users: []

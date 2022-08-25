@@ -13,7 +13,6 @@ yum_update_and_reboot: never # (always, initial, never)
 use_classyllama_syseng_access: true
 use_classyllama_boilerplate: true
 use_geerlingguy_repo_epel: true
-use_classyllama_repo_php_remi_modular: false
 use_classyllama_repo_ius: true
 
 use_classyllama_timezone: false
@@ -55,7 +54,23 @@ postfix_packages:
 # --- PHP ----
 use_geerlingguy_php: true
 php_enable_webserver: false
-php_enable_repo: "remi-php74"
+php_enable_repo: "ius"
+php_packages:
+  - php74-cli
+  - php74-common
+  - php74-devel
+  - php74-fpm
+  - php74-gd
+  - php74-ldap
+  - php74-mbstring
+  - php74-opcache
+  - php74-pdo
+  - php74-xml
+  - php74-xmlrpc
+  - php74-json
+
+php_enable_apc: false
+php_memory_limit: "512M"
 
 # ---- Bastion tools ----
 use_classyllama_lshell: true

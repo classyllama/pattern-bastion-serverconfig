@@ -24,3 +24,14 @@ resource "esxi_guest" "bastion" {
     virtual_network = var.esxi_netname
   }
 }
+
+resource "null_resource" "bastion_provisioning_stack" {
+
+  # Run ansible provisioning playbook on app server
+  provisioner "local-exec" {
+    command = <<EOF
+        ANSIBLE_CONFIG=../ansible.cfg ansible-playbook -i ../inventories/bastion-* ../app.yml
+EOF
+
+  }
+}

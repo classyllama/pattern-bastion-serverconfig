@@ -2,6 +2,14 @@
 
 # Directory Structure
 
+## /ansible/
+
+Ansible code for server stack provisioning
+
+## /ansible/terraform/
+
+Terraform configuration for VM provisioning based on ESXi
+
 ## /reference/
 
 Reference files used when initializing a new project using this pattern. 

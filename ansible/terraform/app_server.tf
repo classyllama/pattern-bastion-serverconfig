@@ -17,8 +17,8 @@ resource "esxi_guest" "bastion" {
   #
   #  Specify an existing guest to clone, an ovf source, or neither to build a bare-metal guest vm.
   #
-  # clone_from_vm      = var.esxi_template
-  ovf_source        = "var.esxi_diskstore/var.esxi_template"
+  clone_from_vm      = var.esxi_template
+  # ovf_source        = "var.esxi_diskstore/var.esxi_template"
 
   network_interfaces {
     virtual_network = var.esxi_netname

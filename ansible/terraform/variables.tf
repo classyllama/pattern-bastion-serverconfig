@@ -11,7 +11,7 @@ variable "esxi_sslport" {
 }
 
 variable "esxi_template" {
-  default = "rocky8-bastion-template"
+  default = "bastion-template"
 }
 
 variable "esxi_netname" {

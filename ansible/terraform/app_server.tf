@@ -13,6 +13,9 @@ provider "esxi" {
 resource "esxi_guest" "bastion" {
   guest_name         = var.esxi_bastionname
   disk_store         = var.esxi_diskstore
+  numvcpus           = var.esxi_numvcpus
+  memsize            = var.esxi_memsize
+  power              = var.esxi_power
 
   #
   #  Specify an existing guest to clone, an ovf source, or neither to build a bare-metal guest vm.
@@ -34,4 +37,8 @@ resource "null_resource" "bastion_provisioning_stack" {
 EOF
 
   }
+}
+
+output "IP" {
+  value = "${esxi_guest.ip_address}"
 }

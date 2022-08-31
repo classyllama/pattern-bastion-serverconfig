@@ -11,7 +11,7 @@ variable "esxi_sslport" {
 }
 
 variable "esxi_template" {
-  default = "bastion-template"
+  default = "datastore1/bastion-template_1"
 }
 
 variable "esxi_netname" {
@@ -32,4 +32,16 @@ variable "esxi_password" {
 
 variable "esxi_bastionname" {
   default = ""
+}
+
+variable "esxi_numvcpus" {
+  default = "2"
+}
+
+variable "esxi_memsize" {
+  default = "1024M"
+}
+
+variable "esxi_power" {
+  default = "on"
 }

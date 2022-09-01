@@ -1,5 +1,12 @@
 # Pattern for Bastion (SSH) Server Configuration
 
+# Requirements
+
+This pattern uses [terraform-provider-esxi](https://github.com/josenk/terraform-provider-esxi) Terraform provider which requires [ovftool](https://www.vmware.com/support/developer/ovf/) installed locally.
+After downloading and installation it is neccessary to add it into `$PATH`:
+
+    ln -s '/Applications/VMware OVF Tool/ovftool' ~/bin/ovftool
+
 # Directory Structure
 
 ## /ansible/

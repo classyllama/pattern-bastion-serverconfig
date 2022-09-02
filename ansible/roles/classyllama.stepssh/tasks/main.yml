@@ -47,6 +47,7 @@
   notify:
     - reload systemd configuration
     - restart step-ssh-metadata
+  when: classyllama_stepssh_replace_bash
 
 - name: StepSSH | Upload script for step-ssh-meta
   ansible.builtin.copy:
@@ -55,10 +56,12 @@
     owner: root
     group: root
     mode: 0750
+  when: classyllama_stepssh_replace_bash
 
-- name: StepSSH | Adding cron entry 
+- name: StepSSH | Adding cron entry
   ansible.builtin.cron:
     name: "step-ssh-meta-replace"
     minute: "*"
     job: "/usr/local/bin/step-ssh-meta-replace.sh"
     user: root
+  when: classyllama_stepssh_replace_bash

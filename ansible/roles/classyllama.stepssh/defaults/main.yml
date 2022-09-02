@@ -7,6 +7,7 @@ classyllama_stepssh_bastion_config: "{{ '--is-bastion' if classyllama_stepssh_is
 classyllama_stepssh_fqdn: "{{ app_domain }}"
 classyllama_stepssh_metadata_temp: "/etc/step-ssh-temp.json"
 classyllama_stepssh_metadata_real: "/etc/step-ssh-acl.json"
+classyllama_stepssh_replace_bash: true
 classyllama_stepssh_tags:
   - host=bastion
   - abc=xyz

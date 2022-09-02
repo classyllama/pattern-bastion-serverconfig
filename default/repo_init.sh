@@ -82,3 +82,21 @@ TARGET_PATH="../persistent/files"
 ([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
   || rm -f ${SYMLINK_PATH}
 [[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
+
+SYMLINK_PATH="ansible/terraform/terraform.tfvars"
+TARGET_PATH="../../persistent/terraform/terraform.tfvars"
+([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
+  || rm -f ${SYMLINK_PATH}
+[[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
+
+SYMLINK_PATH="ansible/terraform/variables.auto.tfvars"
+TARGET_PATH="../../persistent/terraform/variables.auto.tfvars"
+([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
+  || rm -f ${SYMLINK_PATH}
+[[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
+
+SYMLINK_PATH="ansible/terraform/state.tf"
+TARGET_PATH="../../persistent/terraform/state.tf"
+([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
+  || rm -f ${SYMLINK_PATH}
+[[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}

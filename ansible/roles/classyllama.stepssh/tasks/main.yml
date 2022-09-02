@@ -36,3 +36,29 @@
 - name: StepSSH | Debug
   ansible.builtin.debug:
     var: command_output.stdout_lines
+
+- name: StepSSH | Reconfigure step-ssh-meta to sync user-data into temp file
+  ansible.builtin.template:
+    src: step-ssh-metadata.service.j2
+    dest: "/etc/systemd/system/step-ssh-metadata.service"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reload systemd configuration
+    - restart step-ssh-metadata
+
+- name: StepSSH | Upload script for step-ssh-meta
+  ansible.builtin.copy:
+    src: "step-ssh-meta-replace.sh"
+    dest: "/usr/local/bin/step-ssh-meta-replace.sh"
+    owner: root
+    group: root
+    mode: 0750
+
+- name: StepSSH | Adding cron entry 
+  ansible.builtin.cron:
+    name: "step-ssh-meta-replace"
+    minute: "*"
+    job: "/usr/local/bin/step-ssh-meta-replace.sh"
+    user: root

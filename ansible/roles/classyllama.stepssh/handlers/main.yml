@@ -1,0 +1,9 @@
+---
+- name: reload systemd configuration
+  command: systemctl daemon-reload
+
+- name: restart step-ssh-metadata
+  service:
+    name: "step-ssh-metadata"
+    state: restarted
+  ignore_errors: "{{ ansible_check_mode }}"

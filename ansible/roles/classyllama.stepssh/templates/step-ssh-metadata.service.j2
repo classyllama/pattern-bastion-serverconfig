@@ -1,0 +1,13 @@
+[Unit]
+Description=Step SSH metadata server
+# Metadata server must be running before permitting user sessions.
+Before=systemd-user-sessions.service nss-user-lookup.target
+Wants=nss-user-lookup.target
+
+[Service]
+ExecStart=/usr/bin/step-ssh-metadata  -sync-file "{{ classyllama_stepssh_metadata_temp }}" -sync-period 12s
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

@@ -16,9 +16,14 @@
       tags: stepssh
       when: use_classyllama_stepssh | default(false)
 
-    # Magento-Cloud CLI
+    # For magento-cloud cli
     - ansible.builtin.import_role:
          name: geerlingguy.php
       tags: php
       when: use_geerlingguy_php | default(false)
 
+    # Magento-Cloud CLI modified for Bastion hosts
+    - ansible.builtin.import_role:
+         name: classyllama.mcb
+      tags: mcb
+      when: use_classyllama_mcb | default(false)

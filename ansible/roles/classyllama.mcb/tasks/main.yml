@@ -1,0 +1,23 @@
+---
+- name: Magento-Cloud | Check is installed
+  ansible.builtin.stat:
+    path: /bin/magento-cloud
+  register: is_mcb_installed
+
+- name: Magento-Cloud | Upload file
+  ansible.builtin.copy:
+    src: magento-cloud
+    dest: /bin/magento-cloud
+    owner: root
+    group: root
+    mode: 0755
+  when: not is_mcb_installed.stat.exists
+
+- name: Magento-Cloud | Get PHP binary name hardcoded into Phar
+  ansible.builtin.shell: sed -n '1p' /bin/magento-cloud |awk -F "bin/" {' print $2 '}
+  register: phpname
+  when: not is_mcb_installed.stat.exists
+
+- name: Magento-Cloud | Make a copy of PHP binary
+  ansible.builtin.shell: ln -s /bin/php /bin/{{ phpname.stdout_lines[0] }}
+  when: not is_mcb_installed.stat.exists

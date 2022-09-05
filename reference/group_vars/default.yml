@@ -75,4 +75,5 @@ php_memory_limit: "512M"
 # ---- Bastion tools ----
 use_classyllama_lshell: true
 use_classyllama_stepssh: true
+use_classyllama_mcb: true
 classyllama_stepssh_token: "token"

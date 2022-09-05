@@ -48,7 +48,11 @@ roles:
   - src: git@github.com:classyllama/ansible-role-stepssh.git
     name: classyllama.stepssh
     scm: git
-  
+
+  - src: git@github.com:alpacaglue/ansible-role-magentocloud-bastion.git
+    name: classyllama.mcb
+    scm: git
+
     # 3rd Party Ansible Roles
 
     # For Magento-Cloud CLI

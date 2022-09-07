@@ -47,3 +47,11 @@
     owner: root
     group: root
     mode: 0640
+
+- name: LSHELL | Add flush-known-hosts script
+  ansible.builtin.copy:
+    src: flush-known-hosts
+    dest: /bin/flush-known-hosts
+    owner: root
+    group: root
+    mode: 0755

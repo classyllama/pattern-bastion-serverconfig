@@ -27,3 +27,8 @@
          name: classyllama.mcb
       tags: mcb
       when: use_classyllama_mcb | default(false)
+
+    - ansible.builtin.import_role:
+         name: classyllama.pk-delivery
+      tags: pk-delivery
+      when: use_classyllama_pk_delivery | default(false)

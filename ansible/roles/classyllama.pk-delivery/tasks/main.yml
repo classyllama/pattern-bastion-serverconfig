@@ -1,0 +1,21 @@
+---
+- name: PK-Delivery | Install script
+  ansible.builtin.copy:
+    src: copy-pk.sh
+    dest: /usr/local/bin/copy-pk.sh
+    owner: root
+    group: root
+    mode: 0750
+
+- name: PK-Delivery | Create /root/pks if not exists
+  ansible.builtin.file:
+    path: /root/pks
+    state: directory
+    mode: 0770
+    group: root
+    owner: root
+
+- name: PK-Delivery | Add to /etc/pam.d/sshd
+  ansible.builtin.lineinfile:
+    path: /etc/pam.d/sshd
+    line: "session    optional   pam_exec.so /usr/local/bin/copy-pk.sh"

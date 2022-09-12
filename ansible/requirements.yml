@@ -53,6 +53,10 @@ roles:
     name: classyllama.mcb
     scm: git
 
+  - src: git@github.com:classyllama/ansible-role-pk-delivery.git
+    name: classyllama.pk-delivery
+    scm: git
+
     # 3rd Party Ansible Roles
 
     # For Magento-Cloud CLI

@@ -3,6 +3,6 @@
 # Store Terraform state file in persistent directory
 terraform {
   backend "local" {
-    path = "../../persistent/terfaform/terraform.tfstate"
+    path = "../../persistent/terraform/terraform.tfstate"
   }
 }

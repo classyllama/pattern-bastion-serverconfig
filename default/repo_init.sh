@@ -90,7 +90,7 @@ TARGET_PATH="../source/terraform/app_server.tf"
 [[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
 
 SYMLINK_PATH="../../terraform-template/provider_esxi.tf"
-TARGET_PATH="../source/terraform/provider_esxi"
+TARGET_PATH="../source/terraform/provider_esxi.tf"
 ([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
   || rm -f ${SYMLINK_PATH}
 [[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}

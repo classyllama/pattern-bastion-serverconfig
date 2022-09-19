@@ -83,25 +83,25 @@ TARGET_PATH="../persistent/files"
   || rm -f ${SYMLINK_PATH}
 [[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
 
-SYMLINK_PATH="../../persistent/terraform-template/app_server.tf"
+SYMLINK_PATH="../persistent/terraform-template/app_server.tf"
 TARGET_PATH="terraform/app_server.tf"
 ([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
   || rm -f ${SYMLINK_PATH}
 [[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
 
-SYMLINK_PATH="../../persistent/terraform-template/provider_esxi.tf"
+SYMLINK_PATH="../persistent/terraform-template/provider_esxi.tf"
 TARGET_PATH="terraform/provider_esxi"
 ([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
   || rm -f ${SYMLINK_PATH}
 [[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
 
-SYMLINK_PATH="../../persistent/terraform-template/variables.tf"
+SYMLINK_PATH="../persistent/terraform-template/variables.tf"
 TARGET_PATH="terraform/variables.tf"
 ([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
   || rm -f ${SYMLINK_PATH}
 [[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
 
-SYMLINK_PATH="../../persistent/terraform-template/.terraform-version"
+SYMLINK_PATH="../persistent/terraform-template/.terraform-version"
 TARGET_PATH="terraform/.terraform-version"
 ([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
   || rm -f ${SYMLINK_PATH}

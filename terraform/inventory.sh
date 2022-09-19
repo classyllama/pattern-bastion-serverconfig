@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BASTION_IP=$(cat terraform.tfstate |jq -r '.resources[].instances[].attributes.ip_address')
-BASTION_NAME=$(cat terraform.tfstate |jq -r '.resources[].instances[].attributes.guest_name' )
+BASTION_NAME=$(cat terraform.tfstate |jq -r '.resources[].instances[].attributes.guest_name')
 
 cat <<END > ../inventories/${BASTION_NAME}.yml
 all:
@@ -16,4 +16,6 @@ all:
         bastion:
           hosts:
             ${BASTION_NAME}:
-END 
+END
+
+echo "Bastion name: ${BASTION_NAME} Bastion IP: ${BASTION_IP}"

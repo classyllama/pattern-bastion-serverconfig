@@ -35,7 +35,7 @@ resource "null_resource" "app_inventory" {
   ]
 
   provisioner "local-exec" {
-    command = "inventory.sh"
+    command = "/bin/bash inventory.sh"
   }
 
 }

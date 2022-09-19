@@ -106,3 +106,9 @@ TARGET_PATH="../source/terraform/.terraform-version"
 ([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
   || rm -f ${SYMLINK_PATH}
 [[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}
+
+SYMLINK_PATH="../../terraform-template/inventory.sh"
+TARGET_PATH="../source/terraform/inventory.sh"
+([[ -L ${SYMLINK_PATH} ]] && [ "$(readlink -- ${SYMLINK_PATH})" = ${TARGET_PATH} ]) \
+  || rm -f ${SYMLINK_PATH}
+[[ -L ${SYMLINK_PATH} ]] || ln -s ${TARGET_PATH} ${SYMLINK_PATH}

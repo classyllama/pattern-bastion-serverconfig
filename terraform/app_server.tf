@@ -28,17 +28,14 @@ resource "esxi_guest" "bastion" {
   }
 }
 
-#resource "null_resource" "bastion_provisioning_stack" {
-#
-#  # Run ansible provisioning playbook on app server
-#  provisioner "local-exec" {
-#    command = <<EOF
-#        ANSIBLE_CONFIG=../ansible.cfg ansible-playbook -i ../inventories/bastion-* ../app.yml
-#EOF
-#
-#  }
-#}
-#
-#output "IP" {
-#  value = "${esxi_guest.ip_address}"
-#}
+resource "null_resource" "app_inventory" {
+
+  depends_on = [
+    esxi_guest.bastion,
+  ]
+
+  provisioner "local-exec" {
+    command = "inventory.sh"
+  }
+
+}

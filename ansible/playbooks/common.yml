@@ -40,6 +40,11 @@
          name: classyllama.repo_ius
       tags: ius
       when: use_classyllama_repo_ius | default(false)
+
+    - name: Set a hostname
+      ansible.builtin.hostname:
+        name: "{{ app_domain }}"
+        use: systemd
     
     # --- Cleanup default user
     - name: Remove the user 'centos'

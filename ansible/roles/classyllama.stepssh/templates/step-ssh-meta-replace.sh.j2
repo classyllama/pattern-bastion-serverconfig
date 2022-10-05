@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cat {{ classyllama_stepssh_metadata_temp }} |sed -r 's/\/bin\/bash/\/bin\/lshell/' > {{ classyllama_stepssh_metadata_real }}

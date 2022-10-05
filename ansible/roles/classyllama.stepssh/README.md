@@ -24,6 +24,12 @@ If the host is not a bastion (default value):
 
 To avoid replacing Bash with LShell you can set `classyllama_stepssh_replace_bash` to 'false'.
 
+SmallStep tag configuration:
+
+    classyllama_stepssh_tags:
+      - host=bastion
+      - abc=xyz
+      - foo=bar
 
 See `defaults/main.yml` for details.
 

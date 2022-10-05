@@ -50,8 +50,8 @@
   when: classyllama_stepssh_replace_bash
 
 - name: StepSSH | Upload script for step-ssh-meta
-  ansible.builtin.copy:
-    src: "step-ssh-meta-replace.sh"
+  ansible.builtin.template:
+    src: step-ssh-meta-replace.sh.j2
     dest: "/usr/local/bin/step-ssh-meta-replace.sh"
     owner: root
     group: root

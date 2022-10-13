@@ -46,7 +46,7 @@ allowed         : [ {{ classyllama_lshell_allowed_cmd }} ]
 ##
 ##  Important: commands defined in 'allowed_shell_escape' override their
 ##  definition in the 'allowed' variable
-#allowed_shell_escape        : ['man','zcat']
+allowed_shell_escape        : [ {{ classyllama_lshell_allowed_shell_escape }} ]
 
 ##  a list of forbidden character or commands
 forbidden       : [';', '&', '|','`','>','<', '$(', '${']

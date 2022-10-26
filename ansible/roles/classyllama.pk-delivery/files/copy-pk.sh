@@ -13,6 +13,7 @@ fi
 echo "`date +"%F %H:%M:%S"` ${PAM_USER} logged in, copying private keys" >> /var/log/copy-pk.log
 cp -rv /root/pks/id_* ${SSHPATH}
 chown ${PAM_USER}.${PAM_USER} ${SSHPATH}/id_*
+ln -s ${SSHPATH}/id_*_production ${SSHPATH}/id_ed25519
 chmod 400 ${SSHPATH}/id_*
 
 # ECE Api Token (Magento-Cloud CLI)

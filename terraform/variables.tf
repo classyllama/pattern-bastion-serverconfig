@@ -15,7 +15,7 @@ variable "esxi_template" {
 }
 
 variable "esxi_netname" {
-  default = "DATA vLAN"
+  default = "BASTION vLAN"
 }
 
 variable "esxi_diskstore" {

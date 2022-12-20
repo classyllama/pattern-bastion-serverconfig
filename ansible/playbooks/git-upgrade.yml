@@ -1,0 +1,15 @@
+---
+- name: Git upgrade to 2.36
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Remove git
+      package:
+        name:
+          - git
+        state: absent
+    - name: Install git 2.36 (ius)
+      package:
+        name:
+          - git236

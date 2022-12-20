@@ -5,3 +5,6 @@
 
 - ansible.builtin.import_playbook: playbooks/bastion.yml
   when: inventory_hostname in groups['bastion']
+
+- ansible.builtin.import_playbook: playbooks/git-upgrade.yml
+  when: inventory_hostname in groups['bastion']

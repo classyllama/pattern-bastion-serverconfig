@@ -1,5 +1,5 @@
 ---
 classyllama_lshell_repo_url: "https://github.com/ghantoos/lshell.git"
 classyllama_lshell_version: "master"
-classyllama_lshell_allowed_cmd: "'ls', 'echo','ll', 'ssh', 'logout', 'git', 'magento-cloud', 'flush-known-hosts', 'screen'"
+classyllama_lshell_allowed_cmd: "'ls', 'echo','ll', 'ssh', 'logout', 'git', 'magento-cloud', 'flush-known-hosts', 'screen', 'scp', 'rm'"
 classyllama_lshell_allowed_shell_escape: "'git', 'magento-cloud'"

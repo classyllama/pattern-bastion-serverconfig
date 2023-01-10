@@ -5,11 +5,11 @@
 
   tasks:
     - name: Remove git
-      package:
+      ansible.builtin.package:
         name:
           - git
         state: absent
     - name: Install git 2.36 (ius)
-      package:
+      ansible.builtin.package:
         name:
           - git236

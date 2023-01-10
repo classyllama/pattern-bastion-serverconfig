@@ -1,0 +1,47 @@
+---
+- name: Ruby 2.6 and Bundler
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install SCL repository
+      ansible.builtin.package:
+        name:
+          - centos-release-scl
+        state: present
+
+    - name: Install Ruby/Bundler
+      ansible.builtin.package:
+        name:
+          - rh-ruby26
+          - rh-ruby26-rubygem-bundler
+          - rh-ruby26-ruby-devel
+        state: present
+
+    - name: Copy /opt/rh/rh-ruby26/root/usr/lib/ into root FS
+      ansible.builtin.copy:
+        src: "/opt/rh/rh-ruby26/root/usr/lib/" 
+        dest: "/usr/lib/"
+        remote_src: yes
+        directory_mode: yes
+
+    - name: Copy /opt/rh/rh-ruby26/root/usr/lib64/ into root FS
+      ansible.builtin.copy:
+        src: "/opt/rh/rh-ruby26/root/usr/lib64/" 
+        dest: "/usr/lib64/"
+        remote_src: yes
+        directory_mode: yes
+
+    - name: Copy /opt/rh/rh-ruby26/root/usr/bin/ into root FS
+      ansible.builtin.copy:
+        src: "/opt/rh/rh-ruby26/root/usr/bin/" 
+        dest: "/usr/bin/"
+        remote_src: yes
+        directory_mode: yes
+
+    - name: Copy /opt/rh/rh-ruby26/root/usr/include/ into root FS
+      ansible.builtin.copy:
+        src: "/opt/rh/rh-ruby26/root/usr/include/" 
+        dest: "/usr/include/"
+        remote_src: yes
+        directory_mode: yes

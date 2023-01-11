@@ -20,28 +20,40 @@
 
     - name: Copy /opt/rh/rh-ruby26/root/usr/lib/ into root FS
       ansible.builtin.copy:
-        src: "/opt/rh/rh-ruby26/root/usr/lib/" 
+        src: "/opt/rh/rh-ruby26/root/usr/lib/"
         dest: "/usr/lib/"
         remote_src: yes
         directory_mode: yes
 
     - name: Copy /opt/rh/rh-ruby26/root/usr/lib64/ into root FS
       ansible.builtin.copy:
-        src: "/opt/rh/rh-ruby26/root/usr/lib64/" 
+        src: "/opt/rh/rh-ruby26/root/usr/lib64/"
         dest: "/usr/lib64/"
         remote_src: yes
         directory_mode: yes
 
     - name: Copy /opt/rh/rh-ruby26/root/usr/bin/ into root FS
       ansible.builtin.copy:
-        src: "/opt/rh/rh-ruby26/root/usr/bin/" 
+        src: "/opt/rh/rh-ruby26/root/usr/bin/"
         dest: "/usr/bin/"
         remote_src: yes
         directory_mode: yes
 
     - name: Copy /opt/rh/rh-ruby26/root/usr/include/ into root FS
       ansible.builtin.copy:
-        src: "/opt/rh/rh-ruby26/root/usr/include/" 
+        src: "/opt/rh/rh-ruby26/root/usr/include/"
         dest: "/usr/include/"
         remote_src: yes
         directory_mode: yes
+
+    - name: Creating a symlink for /usr/lib64/libruby.so.2.6
+      ansible.builtin.file:
+        src: "/usr/lib64/libruby.so.2.6.10"
+        dest: "/usr/lib64/libruby.so.2.6"
+        state: link
+
+    - name: Creating a symlink for /usr/lib64/libruby.so
+      ansible.builtin.file:
+        src: "/usr/lib64/libruby.so.2.6.10"
+        dest: "/usr/lib64/libruby.so"
+        state: link
